@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Online Portfolio - Debasish Pradhan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --dark:#2e2e2e;
+      --muted:#666;
+      --accent:#2d88ff;
+      --bg:#f7f7f7;
+      --container:1100px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#222;background:var(--bg)}
+    header{background:#333;color:#fff}
+    .topbar{max-width:var(--container);margin:0 auto;padding:18px 20px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:0.5px}
+    nav a{color:#ddd;text-decoration:none;margin-left:18px;font-size:14px}
+    nav a:hover{color:#fff}
+
+    /* HERO */
+    .hero{display:flex;align-items:center;gap:40px;max-width:var(--container);margin:0 auto;padding:48px 20px;position:relative}
+    .hero-left{flex:1;color:#fff;padding:40px;background:#4a4a4a;min-height:360px;position:relative;overflow:hidden}
+    .hero-left h1{font-family:'Montserrat';font-size:40px;margin:0 0 18px}
+    .hero-left p{color:#e6e6e6;line-height:1.6;max-width:640px}
+    .btn{display:inline-block;padding:10px 18px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;margin-top:20px;font-weight:600}
+
+    /* right large faded portrait (background) */
+    .hero-bg{
+      position:absolute;right:0;top:0;bottom:0;width:50%;background-image:url('hero.jpg');background-size:cover;background-position:center;opacity:0.14;pointer-events:none
+    }
+
+    /* About section */
+    .about{max-width:var(--container);margin:0 auto;padding:60px 20px;background:#fff;display:flex;gap:40px;align-items:center}
+    .about .photo{flex:0 0 320px}
+    .about .photo img{width:100%;border-radius:8px}
+    .about .content{flex:1}
+    .about h2{font-family:'Montserrat';margin:0 0 8px}
+    .hr{width:60px;height:4px;background:var(--accent);margin:12px 0;border-radius:2px}
+    .about p.lead{color:var(--muted);margin:0 0 18px}
+    .download{display:inline-block;padding:10px 18px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{flex-direction:column}
+      .hero-bg{display:none}
+      .about{flex-direction:column}
+      .about .photo{width:70%}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">Online Portfolio</div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#works">Works</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <h1>DEBASISH PRADHAN</h1>
+      <p>Hi, I am a Professional Developer and currently i am under graduated. I build web applications and create delightful user experiences.</p>
+      <a class="btn" href="#contact">Hire Me</a>
+    </div>
+
+    <!-- large faded portrait on the right (replace hero.jpg with your large background image) -->
+    <div class="hero-bg" aria-hidden="true"></div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="photo">
+      <!-- replace profile.jpg with your portrait (smaller image shown on the left) -->
+      <img src="chhiii2.jpg" alt="Profile Photo">
+    </div>
+    <div class="content">
+      <h2>ABOUT ME</h2>
+      <div class="hr"></div>
+      <p class="lead">I am Developer who blends expertise with industry know-how to guide your next property development.</p>
+      <p style="color:var(--muted);line-height:1.6">Software Developers use software development languages and tools to write, test, and maintain applications. I specialize in front-end and back-end development, and have experience with HTML, CSS, JavaScript and Python. I enjoy building clean, usable interfaces and solving problems with elegant code.</p>
+      <a class="download" href="#" onclick="downloadResume()">DOWNLOAD RESUME</a>
+    </div>
+  </section>
+
+  <footer style="padding:28px 20px;text-align:center;color:#777">
+    <div style="max-width:var(--container);margin:0 auto">© <span id="year"></span> Debasish Pradhan — Designed with ❤️</div>
+  </footer>
+
+  <script>
+    // small helpers
+    document.getElementById('year').innerText = new Date().getFullYear();
+    function downloadResume(){
+      // Replace 'resume.pdf' with your real resume file path. This is a simple simulated download.
+      const url = 'debasish.resume.pdf';
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'debasish.resume.pdf';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+  </script>
+</body>
+</html>
